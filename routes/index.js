@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Define routes for authentication and task management
 router.use("/api/auth", require("./authRoutes"));
+router.use("/api/slots", require("./slotsRoutes"));
 
 // Export the router from the module
 module.exports = router;
