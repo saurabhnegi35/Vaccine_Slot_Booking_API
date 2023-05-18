@@ -49,3 +49,19 @@ exports.createSlots = async (req, res) => {
   }
 };
 
+// Get available slots on a given day for a specific dose
+exports.getSlots = async (req, res) => {
+    const { date } = req.query;
+    console.log(date);
+    try {
+      // Find available slots for the given date
+      const slots = await Slot.find({ date, available: true });
+      return res.status(200).json({ slots });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+  
+  
