@@ -63,5 +63,38 @@ exports.getSlots = async (req, res) => {
     }
   };
   
+  exports.registerSlot = async (req, res) => {
+    try {
+      const { userId, slotId } = req.body;
   
+      if (!userId || !slotId) {
+        return res
+          .status(400)
+          .json({ error: "User ID and slot ID are required" });
+      }
+  
+      // Check if the user exists
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      // Check if the slot exists and is available
+      const slot = await Slot.findById(slotId);
+      if (!slot || !slot.available) {
+        return res.status(404).json({ error: "Slot not found or not available" });
+      }
+  
+      // Update the slot and user's vaccination status
+      slot.available = false;
+      user.vaccinationStatus = slot.dose;
+  
+      await Promise.all([slot.save(), user.save()]);
+  
+      res.json({ message: "Slot registered successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
   
