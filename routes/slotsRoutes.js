@@ -6,8 +6,9 @@ const router = express.Router();
 const SlotController = require("../controllers/SlotController");
 
 // Define routes for user registration and login
-router.get("/", SlotController.getSlots);
-router.post("/register-slot", SlotController.registerSlot);
+// router.get("/", SlotController.getSlots);
+router.post("/create-slots", SlotController.createSlots);
+// router.post("/register-slot", SlotController.registerSlot);
 
 // Export the router from the module
 module.exports = router;
