@@ -1,16 +1,44 @@
-const mongoose = require("mongoose");
-// Define the Slot schema
-const slotSchema = new mongoose.Schema({
-  date: { type: Date, required: true },
-  time: { type: String, required: true },
-  dose: { type: String, required: true },
-  available: { type: Boolean, default: true },
-  registeredBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+const slotSchema = new Schema({
+  slotId: {
+    type: String,
     required: true,
+    unique: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
+  startTime: {
+    type: String,
+    required: true,
+  },
+  endTime: {
+    type: String,
+    required: true,
+  },
+  dose: {
+    type: String,
+    enum: ['first', 'second'],
+    required: true,
+  },
+  available: {
+    type: Boolean,
+    required: true,
+  },
+  capacity: {
+    type: Number,
+    required: true,
+  },
+  bookedBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    default: null,
   },
 });
 
-const Slot = mongoose.model("Slot", slotSchema);
+const Slot = mongoose.model('Slot', slotSchema);
+
 module.exports = Slot;
