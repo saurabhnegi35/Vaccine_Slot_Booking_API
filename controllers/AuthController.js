@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
 
     await user.save();
 
-    res.json({ message: "User registered successfully" });
+    res.json({ user, message: "User registered successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -37,7 +37,7 @@ exports.login = async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    res.json({ message: "Login successful" });
+    res.json({ user, message: "Login successful" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
