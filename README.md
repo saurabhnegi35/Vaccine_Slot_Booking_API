@@ -23,7 +23,7 @@ Description: Registers a new user with the vaccine registration app.
 
 #### Request Body
 
-```json
+```
 {
   "name": "Your Name",
   "phoneNumber": "1234567890",
@@ -31,33 +31,43 @@ Description: Registers a new user with the vaccine registration app.
   "pincode": "123456",
   "aadharNo": "123456789012",
   "password": "password"
-} ```
-Response
+} 
+```
+#### Response
+```
 {
   "success": true,
   "message": "User registered successfully"
 }
-User Login
+```
+### User Login
 
-Endpoint: /api/users/login
-Method: POST
+Endpoint: `/api/users/login`
+Method: `POST`
 Description: Authenticates a user and returns an access token.
-Request Body
+
+#### Request Body
+```
 {
   "phoneNumber": "1234567890",
   "password": "password"
 }
-Response
+```
+#### Response
+```
 {
   "success": true,
   "token": "<access-token>"
 }
-Get Available Slots
+```
+### Get Available Slots
 
-Endpoint: /api/users/slots
-Method: GET
+Endpoint: `/api/users/slots`
+Method: `GET`
 Description: Retrieves the available time slots for vaccine registration.
-Response
+
+#### Response
+```
 {
   "success": true,
   "slots": [
@@ -80,52 +90,62 @@ Response
     ...
   ]
 }
-Register Slot
+```
+### Register Slot
 
-Endpoint: /api/users/register-slot
-Method: POST
+Endpoint: `/api/users/register-slot`
+Method: `POST`
 Description: Registers a user for a specific time slot.
-Request Body
 
+#### Request Body
+
+```
 {
   "userId": "<user-id>",
   "slotId": "<slot-id>"
 }
+```
 
-Response
+#### Response
 
+```
 {
   "success": true,
   "message": "Slot registered successfully"
 }
+```
 
-Admin Routes
-Admin Login
+## Admin Routes
 
-Endpoint: /api/admin/login
-Method: POST
+### Admin Login
+
+Endpoint: `/api/admin/login`
+Method: `POST`
 Description: Authenticates an admin user and returns an access token.
-Request Body
 
+#### Request Body
+```
 {
   "username": "admin",
   "password": "password"
 }
-
-Response
-
+```
+#### Response
+```
 {
   "success": true,
   "token": "<access-token>"
 }
+```
 
-Get Total Registered Users
+### Get Total Registered Users
 
-Endpoint: /api/admin/total-users
-Method: GET
+Endpoint:  `/api/admin/total-users`
+Method: `GET`
 Description: Retrieves the total number of registered users.
-Response
 
+#### Response
+```
 {
   "success": true,
   "totalUsers": 100,
@@ -141,20 +161,25 @@ Response
     ...
   ]
 }
+```
 
-Filter Registered Users
+### Filter Registered Users
 
-Endpoint: /api/admin/filter-users
-Method: GET
+Endpoint: `/api/admin/filter-users`
+Method: `GET`
 Description: Filters registered users based on age, pincode, and vaccine status.
-Query Parameters
 
+#### Query Parameters
+ 
+ ```
     age: Filter users by age (optional)
     pincode: Filter users by pincode (optional)
     vaccineStatus: Filter users by vaccine status (optional)
+ ```
 
-Response
+#### Response
 
+```
 {
   "success": true,
   "filteredUsers": [
@@ -169,18 +194,21 @@ Response
     ...
   ]
 }
+  ```
 
-Get Slot Details for a Day
+### Get Slot Details for a Day
 
-Endpoint: /api/admin/slot-details
-Method: GET
+Endpoint: `/api/admin/slot-details`
+Method: `GET`
 Description: Retrieves the slot details for a specific day.
-Query Parameters
-
+#### Query Parameters
+  
+```
     date: The date for which to retrieve slot details (required)
-
-Response
-
+```
+  
+#### Response
+```
 {
   "success": true,
   "slotDetails": [
@@ -203,4 +231,5 @@ Response
     ...
   ]
 }
+  ```
 
