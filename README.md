@@ -91,6 +91,187 @@ Description: Retrieves the available time slots for vaccine registration.
   ]
 }
 ```
+
+### Create Slots
+
+Endpoint: `api/slots/create-slots`
+Method: `POST`
+Description: Registers a user for a specific time slot.
+
+#### Request Body
+
+```
+{
+  "startDate": "2023-05-19",
+  "endDate": "2023-05-19",
+  "dose": "first"
+}
+```
+
+#### Response 
+```
+{
+    "slots": [
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "10:00 am",
+            "endTime": "10:30 am",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44238",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "10:30 am",
+            "endTime": "11:00 am",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44239",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "11:00 am",
+            "endTime": "11:30 am",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423a",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "11:30 am",
+            "endTime": "12:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423b",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "12:00 pm",
+            "endTime": "12:30 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423c",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "12:30 pm",
+            "endTime": "01:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423d",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "01:00 pm",
+            "endTime": "01:30 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423e",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "01:30 pm",
+            "endTime": "02:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f4423f",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "02:00 pm",
+            "endTime": "02:30 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44240",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "02:30 pm",
+            "endTime": "03:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44241",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "03:00 pm",
+            "endTime": "03:30 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44242",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "03:30 pm",
+            "endTime": "04:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44243",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "04:00 pm",
+            "endTime": "04:30 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44244",
+            "__v": 0
+        },
+        {
+            "date": "2023-05-19T00:00:00.000Z",
+            "startTime": "04:30 pm",
+            "endTime": "05:00 pm",
+            "dose": "first",
+            "available": true,
+            "capacity": 10,
+            "bookedBy": [],
+            "_id": "646762ea435431e6d3f44245",
+            "__v": 0
+        }
+    ],
+    "message": "Slots created successfully"
+}
+
+```
+
 ### Register Slot
 
 Endpoint: `/api/users/register-slot`
