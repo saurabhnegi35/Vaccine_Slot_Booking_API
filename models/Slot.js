@@ -1,12 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const slotSchema = new Schema({
-  slotId: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  
   date: {
     type: Date,
     required: true,
@@ -21,7 +17,7 @@ const slotSchema = new Schema({
   },
   dose: {
     type: String,
-    enum: ['first', 'second'],
+    enum: ["first", "second"],
     required: true,
   },
   available: {
@@ -32,13 +28,15 @@ const slotSchema = new Schema({
     type: Number,
     required: true,
   },
-  bookedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    default: null,
-  },
+  bookedBy: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+    },
+  ],
 });
 
-const Slot = mongoose.model('Slot', slotSchema);
+const Slot = mongoose.model("Slot", slotSchema);
 
 module.exports = Slot;
