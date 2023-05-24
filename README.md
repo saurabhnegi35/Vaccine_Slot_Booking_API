@@ -38,7 +38,7 @@ Description: Registers a new user with the vaccine registration app.
 ```
 {
   "success": true,
-  "message": "User has Registered Successfully"
+  "message": "User registered successfully"
 }
 ```
 
