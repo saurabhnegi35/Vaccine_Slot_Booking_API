@@ -10,7 +10,6 @@ The base URL for all API endpoints is: `http://localhost:6000`
 
 To access the protected routes, you need to include an authentication token in the request headers. The token should be provided in the `Authorization` header as follows:
 
-
 The token can be obtained by logging in as an admin user.
 
 ## User Routes
@@ -31,15 +30,18 @@ Description: Registers a new user with the vaccine registration app.
   "pincode": "123456",
   "aadharNo": "123456789012",
   "password": "password"
-} 
+}
 ```
+
 #### Response
+
 ```
 {
   "success": true,
-  "message": "User registered successfully"
+  "message": "User has Registered Successfully"
 }
 ```
+
 ### User Login
 
 Endpoint: `/api/users/login`
@@ -47,19 +49,23 @@ Method: `POST`
 Description: Authenticates a user and returns an access token.
 
 #### Request Body
+
 ```
 {
   "phoneNumber": "1234567890",
   "password": "password"
 }
 ```
+
 #### Response
+
 ```
 {
   "success": true,
   "token": "<access-token>"
 }
 ```
+
 ### Get Available Slots
 
 Endpoint: `/api/users/slots`
@@ -67,6 +73,7 @@ Method: `GET`
 Description: Retrieves the available time slots for vaccine registration.
 
 #### Response
+
 ```
 {
   "success": true,
@@ -108,7 +115,8 @@ Description: Registers a user for a specific time slot.
 }
 ```
 
-#### Response 
+#### Response
+
 ```
 {
     "slots": [
@@ -305,13 +313,16 @@ Method: `POST`
 Description: Authenticates an admin user and returns an access token.
 
 #### Request Body
+
 ```
 {
   "username": "admin",
   "password": "password"
 }
 ```
+
 #### Response
+
 ```
 {
   "success": true,
@@ -321,11 +332,12 @@ Description: Authenticates an admin user and returns an access token.
 
 ### Get Total Registered Users
 
-Endpoint:  `/api/admin/total-users`
+Endpoint: `/api/admin/total-users`
 Method: `GET`
 Description: Retrieves the total number of registered users.
 
 #### Response
+
 ```
 {
   "success": true,
@@ -351,12 +363,12 @@ Method: `GET`
 Description: Filters registered users based on age, pincode, and vaccine status.
 
 #### Query Parameters
- 
- ```
-    age: Filter users by age (optional)
-    pincode: Filter users by pincode (optional)
-    vaccineStatus: Filter users by vaccine status (optional)
- ```
+
+```
+   age: Filter users by age (optional)
+   pincode: Filter users by pincode (optional)
+   vaccineStatus: Filter users by vaccine status (optional)
+```
 
 #### Response
 
@@ -375,20 +387,22 @@ Description: Filters registered users based on age, pincode, and vaccine status.
     ...
   ]
 }
-  ```
+```
 
 ### Get Slot Details for a Day
 
 Endpoint: `/api/admin/slot-details`
 Method: `GET`
 Description: Retrieves the slot details for a specific day.
+
 #### Query Parameters
-  
+
 ```
     date: The date for which to retrieve slot details (required)
 ```
-  
+
 #### Response
+
 ```
 {
   "success": true,
@@ -412,5 +426,4 @@ Description: Retrieves the slot details for a specific day.
     ...
   ]
 }
-  ```
-
+```
